@@ -1,0 +1,2 @@
+1.0 - First full build. List, log, owner, ping, roles, roll, shutdown, uptime, and users command.
+
