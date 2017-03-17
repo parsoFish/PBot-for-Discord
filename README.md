@@ -3,7 +3,7 @@ Discord bot created by Phoenix for general usage.
 
 Currently only used in "The Cute Squad" Discord server for general commands.
 
-*Current list of commands:*
+*Current list of commands:*<br />
 !list - Returns a list of commands accessible to the user.<br />
 !log - Sends a PM of events that have occurred since the bot's startup.<br />
 !owner - Returns the nickname of the owner of the server.<br />
