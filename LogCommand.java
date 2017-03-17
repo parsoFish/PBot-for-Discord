@@ -11,11 +11,14 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class LogCommand implements Command {
 	private final String HELP = "Usage: !log\nSends a PM of events that have occurred since the bot's startup.";
 	
-	public boolean called(String[] args, MessageReceivedEvent event) {
-		return true;
+	public boolean called(String commandArg, String extraArg) {
+		if(commandArg.equals("log")){
+			return true;
+		}
+		return false;
 	}
 
-	public void action(String[] args, MessageReceivedEvent event) {
+	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
 		if(event.getMember().isOwner()){
 			event.getAuthor().openPrivateChannel().queue(m -> m.sendMessage(Main.log).queue());

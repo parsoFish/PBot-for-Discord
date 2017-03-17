@@ -12,11 +12,14 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class RollCommand implements Command {
 	private final String HELP = "Usage: !roll\nRolls a 6-sided dice and returns the result.";
 	
-	public boolean called(String[] args, MessageReceivedEvent event) {
-		return true;
+	public boolean called(String commandArg, String extraArg) {
+		if(commandArg.equals("roll")){
+			return true;
+		}
+		return false;
 	}
 
-	public void action(String[] args, MessageReceivedEvent event) {
+	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
 		Random rng = new Random();
 		int diceRoll = rng.nextInt(6)+1;

@@ -11,11 +11,14 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class UsersCommand implements Command {
 	private final String HELP = "USAGE: !users\nReturns the number of users in the server.";
 	
-	public boolean called(String[] args, MessageReceivedEvent event) {
-		return true;
+	public boolean called(String commandArg, String extraArg) {
+		if(commandArg.equals("users")){
+			return true;
+		}
+		return false;
 	}
 
-	public void action(String[] args, MessageReceivedEvent event) {
+	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
 		int numberOfUsers = event.getGuild().getMembers().size();
 		event.getTextChannel().sendTyping().queue();

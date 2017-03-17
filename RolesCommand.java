@@ -14,11 +14,14 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class RolesCommand implements Command {
 	private final String HELP = "Usage: !roles\nReturns a list of the roles in this server, as well as a count of how many people are assigned each role.";
 	
-	public boolean called(String[] args, MessageReceivedEvent event) {
-		return true;
+	public boolean called(String commandArg, String extraArg) {
+		if(commandArg.equals("roles")){
+			return true;
+		}
+		return false;
 	}
 
-	public void action(String[] args, MessageReceivedEvent event) {
+	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
 		List<Role> roles = event.getGuild().getRoles();
 		List<Member> members = event.getGuild().getMembers();
