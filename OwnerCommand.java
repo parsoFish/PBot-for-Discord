@@ -11,11 +11,14 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class OwnerCommand implements Command {
 	private final String HELP = "Usage: !owner\nReturns the nickname of the owner of the server.";
 	
-	public boolean called(String[] args, MessageReceivedEvent event) {
-		return true;
+	public boolean called(String commandArg, String extraArg) {
+		if(commandArg.equals("owner")){
+			return true;
+		}
+		return false;
 	}
 
-	public void action(String[] args, MessageReceivedEvent event) {
+	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
 		event.getTextChannel().sendTyping().queue();
 		event.getTextChannel().sendMessage(event.getGuild().getOwner().getNickname()).queue();

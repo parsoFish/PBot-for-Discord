@@ -11,14 +11,16 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class ShutdownCommand implements Command {
 	private final String HELP = "Usage: !shutdown\nShuts down the bot and PMs the event log to the sender. Will only work for admins!";
 	
-	public boolean called(String[] args, MessageReceivedEvent event) {
-		return true;
+	public boolean called(String commandArg, String extraArg) {
+		if(commandArg.equals("shutdown")){
+			return true;
+		}
+		return false;
 	}
 
-	public void action(String[] args, MessageReceivedEvent event) {
+	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
 		if(event.getMember().isOwner()){
-			event.getTextChannel().sendTyping().queue();
 			event.getTextChannel().sendMessage("Yes sir! Shutting down.").queue();
 			event.getAuthor().openPrivateChannel().queue(m -> m.sendMessage(Main.log).queue());
 			event.getJDA().shutdown();

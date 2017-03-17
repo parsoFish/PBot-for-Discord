@@ -11,11 +11,14 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class UptimeCommand implements Command {
 	private final String HELP = "Usage: !uptime\nDisplays the time the bot started up, and how much time has passed since then.";
 	
-	public boolean called(String[] args, MessageReceivedEvent event) {
-		return true;
+	public boolean called(String commandArg, String extraArg) {
+		if(commandArg.equals("uptime")){
+			return true;
+		}
+		return false;
 	}
 
-	public void action(String[] args, MessageReceivedEvent event) {
+	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
 		long currentUtcTimeInMillis = System.currentTimeMillis() + 14400000;
 		long elapsedTime = currentUtcTimeInMillis - Main.UtcTimeInMillis;

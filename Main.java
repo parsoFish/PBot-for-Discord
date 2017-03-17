@@ -38,15 +38,14 @@ public class Main {
 		startup(UtcTimeInMillis);
 	}
 	
-	public static void handleCommand(CommandParser.CommandContainer cmd) {
-		if(commands.containsKey(cmd.invoke)) {
-			boolean safe = commands.get(cmd.invoke).called(cmd.args, cmd.event);
+	public static void handleCommand(CommandParser cmd) {
+		if(commands.containsKey(cmd.commandArg)) {
+			boolean safe = commands.get(cmd.commandArg).called(cmd.commandArg, cmd.extraArg);
 			
 			if(safe){
-				commands.get(cmd.invoke).action(cmd.args, cmd.event);
-				commands.get(cmd.invoke).executed(safe, cmd.event);
+				commands.get(cmd.commandArg).action(cmd.commandArg, cmd.extraArg, cmd.event);
 			}else{
-				commands.get(cmd.invoke).executed(safe, cmd.event);
+				cmd.event.getTextChannel().sendMessage("Invalid command! Type !list for a list of available commands.").queue();
 			}
 		}
 	}

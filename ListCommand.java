@@ -11,11 +11,14 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class ListCommand implements Command {
 	private final String HELP = "Usage: !list\nReturns a list of commands accessible to the user.";
 	
-	public boolean called(String[] args, MessageReceivedEvent event) {
-		return true;
+	public boolean called(String commandArg, String extraArg) {
+		if(commandArg.equals("list")){
+			return true;
+		}
+		return false;
 	}
 
-	public void action(String[] args, MessageReceivedEvent event) {
+	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
 		String outputMessage = "!list - Returns a list of commands accessible to the user.\n!log - Sends a PM of events that have occurred since the bot's startup.\n"
 				+ "!owner - Returns the nickname of the owner of the server.\n!ping - Returns Pong! if successful, as well as the time the ping request was sent.\n"

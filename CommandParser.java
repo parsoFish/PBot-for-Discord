@@ -1,37 +1,36 @@
 package com.projects.discordbot;
 
-import java.util.ArrayList;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 public class CommandParser {
-	public CommandContainer parse(String rw, MessageReceivedEvent e) {
-		ArrayList<String> split = new ArrayList<String>();
-		String raw = rw;
-		String beheaded = raw.replaceFirst("!", "");
-		String[] splitBeheaded = beheaded.split(" ");
-		for(String s : splitBeheaded) {split.add(s);}
-		String invoke = split.get(0);
-		String[] args = new String[split.size() - 1];
-		split.subList(1,split.size()).toArray(args);
-		
-		return new CommandContainer(raw, beheaded, splitBeheaded, invoke, args, e);
+	
+	private String withoutIdentifier;
+	private String[] textSplit;
+	protected String commandArg;
+	protected String extraArg;
+	protected MessageReceivedEvent event;
+	
+	public CommandParser(){
+		withoutIdentifier = "";
+		textSplit = null;
+		commandArg = "";
+		extraArg = "";
+		event = null;
 	}
 	
-	public class CommandContainer {
-		public final String raw;
-		public final String beheaded;
-		public final String[] splitBeheaded;
-		public final String invoke;
-		public final String[] args;
-		public final MessageReceivedEvent event;
-		
-		public CommandContainer(String rw, String beheaded, String[] splitBeheaded, String invoke, String[] args, MessageReceivedEvent e) {
-			this.raw = rw;
-			this.beheaded = beheaded;
-			this.splitBeheaded = splitBeheaded;
-			this.invoke = invoke;
-			this.args = args;
-			this.event = e;
+	public CommandParser(String commandArg, String extraArg, MessageReceivedEvent e){
+		this.commandArg = commandArg;
+		this.extraArg = extraArg;
+		this.event = e;
+	}
+	
+	public CommandParser parse(String raw, MessageReceivedEvent e) {
+		withoutIdentifier = raw.replaceFirst("!", "");
+		textSplit = withoutIdentifier.split(" ");
+		commandArg = textSplit[0];
+		if(textSplit.length > 1){
+			extraArg = textSplit[1];
 		}
+		return new CommandParser(commandArg, extraArg, e);
 	}
 }
