@@ -4,14 +4,14 @@ Discord bot created by Phoenix for general usage.
 Currently only used in "The Cute Squad" Discord server for general commands.
 
 *Current list of commands:*
-!list - Returns a list of commands accessible to the user.
-!log - Sends a PM of events that have occurred since the bot's startup.
-!owner - Returns the nickname of the owner of the server.
-!ping - Returns Pong! if successful, as well as the time the ping request was sent.
-!roles - Returns a list of the roles in this server, as well as a count of how many people are assigned each role.
-!roll - Rolls a 6-sided dice and returns the result.
-!shutdown - Shuts down the bot and PMs the event log to the sender. Admins only.
-!uptime - Displays the time the bot started up, and how much time has passed since then.
+!list - Returns a list of commands accessible to the user.<br />
+!log - Sends a PM of events that have occurred since the bot's startup.<br />
+!owner - Returns the nickname of the owner of the server.<br />
+!ping - Returns Pong! if successful, as well as the time the ping request was sent.<br />
+!roles - Returns a list of the roles in this server, as well as a count of how many people are assigned each role.<br />
+!roll - Rolls a 6-sided dice and returns the result.<br />
+!shutdown - Shuts down the bot and PMs the event log to the sender. Admins only.<br />
+!uptime - Displays the time the bot started up, and how much time has passed since then.<br />
 !users - Returns the number of members in the guild.
 <br />
 <br />
