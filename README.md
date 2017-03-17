@@ -17,7 +17,7 @@ Currently only used in "The Cute Squad" Discord server for general commands.
 <br />
 # **Technical overview of the bot's code**
 
-Via a listener class, each message sent in a channel (currently any channel, may restrict to specific channels in the future) is picked up if it begins with !. The message is then parsed and compared with the list of commands known to the bot. If it matches, the action() method of the command is called and the command is ran. 
+Via a listener class, each message sent in #bot-stuff or #testing-bot is picked up if it begins with !. The message is then parsed and compared with the list of commands known to the bot. If it matches, the action() method of the command is called and the command is ran. 
 <br />
 <br />
 <br />
