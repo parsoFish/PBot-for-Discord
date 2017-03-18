@@ -1,3 +1,5 @@
 1.0 - First full build. List, log, owner, ping, roles, roll, shutdown, uptime, and users command.
 
 1.1 - Adjusted bot to only respond in #bot-stuff and #testing-bot. Overhaul of parsing/handling process. Minor tweaks to command method arguments to allow for easier addition of features.
+
+1.2 - Added !quote command. Bot also now displays a status "playing" in the discord user list.
