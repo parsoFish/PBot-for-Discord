@@ -1,4 +1,4 @@
-# PBot-for-Discord v1.2
+# PBot-for-Discord v1.2.1
 Discord bot created by Phoenix for general usage.
 
 Currently only used in "The Cute Squad" Discord server for general commands.
