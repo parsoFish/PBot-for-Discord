@@ -7,6 +7,7 @@ import commands.ListCommand;
 import commands.LogCommand;
 import commands.OwnerCommand;
 import commands.PingCommand;
+import commands.QuoteCommand;
 import commands.RolesCommand;
 import commands.RollCommand;
 import commands.ShutdownCommand;
@@ -15,6 +16,7 @@ import commands.UsersCommand;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.core.entities.Game;
 
 public class Main {
 	
@@ -29,6 +31,7 @@ public class Main {
 		try{
 			api = new JDABuilder(AccountType.BOT).addListener(new BotListener()).setToken(BOT_TOKEN).buildBlocking();
 			api.setAutoReconnect(true);
+			api.getPresence().setGame(Game.of("v1.1 - !list for commands."));
 			UtcTimeInMillis = System.currentTimeMillis() + 14400000;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -66,6 +69,7 @@ public class Main {
 		commands.put("log", new LogCommand());
 		commands.put("owner", new OwnerCommand());
 		commands.put("ping", new PingCommand());
+		commands.put("quote", new QuoteCommand());
 		commands.put("roles", new RolesCommand());
 		commands.put("roll", new RollCommand());
 		commands.put("shutdown", new ShutdownCommand());

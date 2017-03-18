@@ -24,7 +24,7 @@ public class PingCommand implements Command {
 		String time = messageTime.format(format);
 		Main.updateLog(event.getAuthor().getName() + " accessed the ping command at " + time);
 		event.getTextChannel().sendTyping().queue();
-		event.getTextChannel().sendMessage("Pong!\nThe above ping request was sent on: " + time).queue();
+		event.getTextChannel().sendMessage("Pong! \nThe above ping request was sent on: " + time).queue();
 	}
 
 	public String help() {
