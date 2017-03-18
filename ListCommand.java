@@ -22,7 +22,7 @@ public class ListCommand implements Command {
 		logEvent(event);
 		String outputMessage = "!list - Returns a list of commands accessible to the user.\n!log - Sends a PM of events that have occurred since the bot's startup.\n"
 				+ "!owner - Returns the nickname of the owner of the server.\n!ping - Returns Pong! if successful, as well as the time the ping request was sent.\n"
-				+ "!roles - Returns a list of the roles in this server, as well as a count of how many people are assigned each role.\n"
+				+ "!quote - Returns a random quote from a Sprash member.\n!roles - Returns a list of the roles in this server, as well as a count of how many people are assigned each role.\n"
 				+ "!roll - Rolls a 6-sided dice and returns the result.\n";
 		if(event.getMember().isOwner()){
 			outputMessage += "!shutdown - Shuts down the bot and PMs the event log to the sender. Will only work for admins!\n";
