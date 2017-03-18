@@ -8,6 +8,7 @@ Currently only used in "The Cute Squad" Discord server for general commands.
 !log - Sends a PM of events that have occurred since the bot's startup.<br />
 !owner - Returns the nickname of the owner of the server.<br />
 !ping - Returns Pong! if successful, as well as the time the ping request was sent.<br />
+!quote - Returns a random quote from a Sprash member.<br />
 !roles - Returns a list of the roles in this server, as well as a count of how many people are assigned each role.<br />
 !roll - Rolls a 6-sided dice and returns the result.<br />
 !shutdown - Shuts down the bot and PMs the event log to the sender. Admins only.<br />
