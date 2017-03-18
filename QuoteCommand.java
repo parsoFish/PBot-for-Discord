@@ -35,16 +35,22 @@ public class QuoteCommand implements Command {
 			e.printStackTrace();
 		}
 		
+		//Delimiter set to quote to throw away start-of-file encoding
+		input.useDelimiter("\"");
+		input.next();
+		
 		//Delimiter set to comma, and add trimmed quotes
-		input.useDelimiter(";");
+		input.useDelimiter("\\|");
 		while(input.hasNext()){
+		    //System.out.println(input.next());
 			quotes.add(input.next().trim());
 		}
 		input.close();
 		
 		//Get random quote
 		Random rng = new Random();
-		event.getTextChannel().sendMessage(quotes.get(rng.nextInt(quotes.size()))).queue();
+		event.getTextChannel().sendMessage(quotes.get(0)).queue();
+		//event.getTextChannel().sendMessage(quotes.get(rng.nextInt(quotes.size()))).queue();
 	}
 
 	public String help() {
