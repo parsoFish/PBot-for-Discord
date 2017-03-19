@@ -1,9 +1,10 @@
-# PBot-for-Discord v1.2.1
+# PBot-for-Discord v1.3
 Discord bot created by Phoenix for general usage.
 
 Currently only used in "The Cute Squad" Discord server for general commands.
 
 **Current list of commands:**<br />
+!8ball - Responds with an 8-ball type answer.<br />
 !list - Returns a list of commands accessible to the user.<br />
 !log - Sends a PM of events that have occurred since the bot's startup.<br />
 !owner - Returns the nickname of the owner of the server.<br />
