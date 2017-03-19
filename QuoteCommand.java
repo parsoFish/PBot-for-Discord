@@ -13,6 +13,11 @@ import com.projects.discordbot.Main;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
+/*
+ * PBot v1.3 by Phoenix
+ * For use in Discord server "The Cute Squad" only
+ */
+
 public class QuoteCommand implements Command {
 	public final String HELP = "Usage: !quote\nReturns a random quote from a Sprash member.";
 

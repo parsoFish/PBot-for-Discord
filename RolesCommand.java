@@ -11,6 +11,11 @@ import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.Role;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
+/*
+ * PBot v1.3 by Phoenix
+ * For use in Discord server "The Cute Squad" only
+ */
+
 public class RolesCommand implements Command {
 	private final String HELP = "Usage: !roles\nReturns a list of the roles in this server, as well as a count of how many people are assigned each role.";
 	

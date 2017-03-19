@@ -13,6 +13,10 @@ import com.projects.discordbot.Main;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
+/*
+ * PBot v1.3 by Phoenix
+ * For use in Discord server "The Cute Squad" only
+ */
 public class EightBallCommand implements Command {
     private final String HELP = "Usage: !8ball\nAnswers a question with an 8-ball type response at random.";
     

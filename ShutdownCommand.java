@@ -8,6 +8,11 @@ import com.projects.discordbot.Main;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
+/*
+ * PBot v1.3 by Phoenix
+ * For use in Discord server "The Cute Squad" only
+ */
+
 public class ShutdownCommand implements Command {
 	private final String HELP = "Usage: !shutdown\nShuts down the bot and PMs the event log to the sender. Will only work for admins!";
 	

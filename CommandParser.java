@@ -2,6 +2,11 @@ package com.projects.discordbot;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
+/*
+ * PBot v1.3 by Phoenix
+ * For use in Discord server "The Cute Squad" only
+ */
+
 public class CommandParser {
 	
 	private String withoutIdentifier;

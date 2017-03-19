@@ -9,6 +9,11 @@ import com.projects.discordbot.Main;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
+/*
+ * PBot v1.3 by Phoenix
+ * For use in Discord server "The Cute Squad" only
+ */
+
 public class RollCommand implements Command {
 	private final String HELP = "Usage: !roll\nRolls a 6-sided dice and returns the result.";
 	

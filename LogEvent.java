@@ -1,5 +1,10 @@
 package com.projects.discordbot;
 
+/*
+ * PBot v1.3 by Phoenix
+ * For use in Discord server "The Cute Squad" only
+ */
+
 public class LogEvent {
 	private String event;
 	

@@ -3,6 +3,11 @@ package com.projects.discordbot;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
+/*
+ * PBot v1.3 by Phoenix
+ * For use in Discord server "The Cute Squad" only
+ */
+
 public class BotListener extends ListenerAdapter {
 	
 	CommandParser cmd = new CommandParser();
