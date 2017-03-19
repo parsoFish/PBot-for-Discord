@@ -31,6 +31,7 @@ public class CommandParser {
 		if(textSplit.length > 1){
 			extraArg = textSplit[1];
 		}
+		
 		return new CommandParser(commandArg, extraArg, e);
 	}
 }

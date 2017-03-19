@@ -3,3 +3,5 @@
 1.1 - Adjusted bot to only respond in #bot-stuff and #testing-bot. Overhaul of parsing/handling process. Minor tweaks to command method arguments to allow for easier addition of features.
 
 1.2 - Added !quote command. Bot also now displays a status "playing" in the discord user list.
+
+1.3 - Added !8ball command. Fixed various bugs with !quote. Added support for multiple rolls per command for !roll.

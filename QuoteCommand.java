@@ -25,6 +25,7 @@ public class QuoteCommand implements Command {
 
 	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
+		Random rng = new Random();
 		ArrayList<String> quotes = new ArrayList<String>();
 		Scanner input = null;
 		
@@ -35,15 +36,18 @@ public class QuoteCommand implements Command {
 			e.printStackTrace();
 		}
 		
+		//Delimiter set to quote to throw away start-of-file encoding
+		input.useDelimiter("\"");
+		input.next();
+		
 		//Delimiter set to comma, and add trimmed quotes
-		input.useDelimiter(";");
+		input.useDelimiter("\\|");
 		while(input.hasNext()){
 			quotes.add(input.next().trim());
 		}
 		input.close();
 		
 		//Get random quote
-		Random rng = new Random();
 		event.getTextChannel().sendMessage(quotes.get(rng.nextInt(quotes.size()))).queue();
 	}
 
