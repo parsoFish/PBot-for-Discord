@@ -3,6 +3,7 @@ package com.projects.discordbot;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
+import commands.EightBallCommand;
 import commands.ListCommand;
 import commands.LogCommand;
 import commands.OwnerCommand;
@@ -31,7 +32,7 @@ public class Main {
 		try{
 			api = new JDABuilder(AccountType.BOT).addListener(new BotListener()).setToken(BOT_TOKEN).buildBlocking();
 			api.setAutoReconnect(true);
-			api.getPresence().setGame(Game.of("v1.2.5 - !list for commands."));
+			api.getPresence().setGame(Game.of("v1.3 - !list for commands."));
 			UtcTimeInMillis = System.currentTimeMillis() + 14400000;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -65,6 +66,7 @@ public class Main {
 	}
 	
 	public static void addCommands() {
+	    commands.put("8ball", new EightBallCommand());
 		commands.put("list", new ListCommand());
 		commands.put("log", new LogCommand());
 		commands.put("owner", new OwnerCommand());

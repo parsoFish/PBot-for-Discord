@@ -25,6 +25,9 @@ public class RollCommand implements Command {
 		int diceRoll;
 		double total = 0, rollCount, average;
 		
+		//Check for extra argument not existing, if so allow it to pass through the try-catch
+		if(extraArg.equals("")) { extraArg = "1"; }
+		
 		//Check if extra argument is a number
 		try{
 		    rollCount = Integer.parseInt(extraArg);
@@ -40,7 +43,6 @@ public class RollCommand implements Command {
 		}
 		
 		//If rollCount is 1 or if there is no specifying extra argument
-		if(extraArg.equals("")) { System.out.println("Extra arg is nothing"); }
 		if(extraArg.equals("") || rollCount == 1){
 		    diceRoll = rng.nextInt(6)+1;
 		    event.getTextChannel().sendMessage("You rolled a..." + diceRoll+ ".").queue();

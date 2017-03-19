@@ -25,6 +25,7 @@ public class QuoteCommand implements Command {
 
 	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
+		Random rng = new Random();
 		ArrayList<String> quotes = new ArrayList<String>();
 		Scanner input = null;
 		
@@ -47,7 +48,6 @@ public class QuoteCommand implements Command {
 		input.close();
 		
 		//Get random quote
-		Random rng = new Random();
 		event.getTextChannel().sendMessage(quotes.get(rng.nextInt(quotes.size()))).queue();
 	}
 

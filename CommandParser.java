@@ -30,11 +30,8 @@ public class CommandParser {
 		commandArg = textSplit[0];
 		if(textSplit.length > 1){
 			extraArg = textSplit[1];
-		}else{
-		    extraArg = "1";
 		}
 		
-		System.out.println(extraArg);
 		return new CommandParser(commandArg, extraArg, e);
 	}
 }
