@@ -31,7 +31,7 @@ public class Main {
 		try{
 			api = new JDABuilder(AccountType.BOT).addListener(new BotListener()).setToken(BOT_TOKEN).buildBlocking();
 			api.setAutoReconnect(true);
-			api.getPresence().setGame(Game.of("v1.2 - !list for commands."));
+			api.getPresence().setGame(Game.of("v1.2.5 - !list for commands."));
 			UtcTimeInMillis = System.currentTimeMillis() + 14400000;
 		}catch(Exception e){
 			e.printStackTrace();

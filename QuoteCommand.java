@@ -42,15 +42,13 @@ public class QuoteCommand implements Command {
 		//Delimiter set to comma, and add trimmed quotes
 		input.useDelimiter("\\|");
 		while(input.hasNext()){
-		    //System.out.println(input.next());
 			quotes.add(input.next().trim());
 		}
 		input.close();
 		
 		//Get random quote
 		Random rng = new Random();
-		event.getTextChannel().sendMessage(quotes.get(0)).queue();
-		//event.getTextChannel().sendMessage(quotes.get(rng.nextInt(quotes.size()))).queue();
+		event.getTextChannel().sendMessage(quotes.get(rng.nextInt(quotes.size()))).queue();
 	}
 
 	public String help() {
