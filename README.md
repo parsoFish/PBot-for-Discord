@@ -11,7 +11,7 @@ Currently only used in "The Cute Squad" Discord server for general commands.
 !ping - Returns Pong! if successful, as well as the time the ping request was sent.<br />
 !quote - Returns a random quote from a Sprash member.<br />
 !roles - Returns a list of the roles in this server, as well as a count of how many people are assigned each role.<br />
-!roll - Rolls a 6-sided dice and returns the result.<br />
+!roll - Rolls a 6-sided dice and returns the result. Input a number 1-100 to roll that many times.<br />
 !shutdown - Shuts down the bot and PMs the event log to the sender. Admins only.<br />
 !uptime - Displays the time the bot started up, and how much time has passed since then.<br />
 !users - Returns the number of members in the guild.
