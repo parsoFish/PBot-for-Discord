@@ -1,7 +1,10 @@
 package com.projects.discordbot;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import commands.EightBallCommand;
 import commands.ListCommand;
@@ -29,11 +32,22 @@ public class Main {
 	private static JDA api;
 	public static String log = "";
 	public static long UtcTimeInMillis;
-	public static final String BOT_TOKEN = "MjkxMTIyOTY4NjUyODA4MTkz.C6nvKw.MljyPLS6rc9P0V6munTQXEGn7e4";
+	public static String BOT_TOKEN;
 	public static final CommandParser parser = new CommandParser();
 	public static HashMap<String, Command> commands = new HashMap<String, Command>();
 	
 	public static void main(String[] args){
+	    //Get token from file
+	    Scanner input = null;
+	    
+	    try{
+	        input = new Scanner(new File("C:\\Users\\Sean\\Desktop\\Programming\\Eclipse\\Discord Bot\\Token.txt"));
+	        BOT_TOKEN = input.next().trim();
+	    }catch(FileNotFoundException e){
+	        e.printStackTrace();
+	    }
+	    
+	    
 		try{
 			api = new JDABuilder(AccountType.BOT).addListener(new BotListener()).setToken(BOT_TOKEN).buildBlocking();
 			api.setAutoReconnect(true);
