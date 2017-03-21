@@ -1,0 +1,11 @@
+!8ball - Responds with an 8-ball type response.|
+!list - Returns the list of available commands.|
+!log - **Admin Only** Sends a PM of events that have occurred since the bot's startup.|
+!owner - Returns the nickname of the owner of the server.|
+!ping - Returns Pong! if successful, as well as the time the ping request was sent.|
+!quote - Returns a random quote from a Sprash member.|
+!roles - Returns a list of the roles in this server, as well as a count of how many people are assigned each role.|
+!roll - Rolls a 6-sided dice and returns the result. Add a number to roll more than once (1-100 times).|
+!shutdown - **Admin Only** Shuts down the bot and PMs the event log to the sender.|
+!uptime - Displays how much time has passed since the bot last started up.|
+!users - Returns the number of users in the server.|

@@ -9,14 +9,14 @@ import com.projects.discordbot.Main;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 /*
- * PBot v1.3 by Phoenix
+ * PBot v1.5 by Phoenix
  * For use in Discord server "The Cute Squad" only
  */
 
 public class ListCommand implements Command {
-	private final String HELP = "Usage: !list\nReturns a list of commands accessible to the user.";
+	private final String HELP = "Usage: !list\nReturns the list of available commands.\n";
 	
-	public boolean called(String commandArg, String extraArg) {
+	public boolean called(String commandArg, String extraArg, MessageReceivedEvent event) {
 		if(commandArg.equals("list")){
 			return true;
 		}
@@ -25,20 +25,22 @@ public class ListCommand implements Command {
 
 	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
-		String outputMessage = "!list - Returns a list of commands accessible to the user.\n!log - Sends a PM of events that have occurred since the bot's startup.\n"
-				+ "!owner - Returns the nickname of the owner of the server.\n!ping - Returns Pong! if successful, as well as the time the ping request was sent.\n"
-				+ "!quote - Returns a random quote from a Sprash member.\n!roles - Returns a list of the roles in this server, as well as a count of how many people are assigned each role.\n"
-				+ "!roll - Rolls a 6-sided dice and returns the result.\n";
-		if(event.getMember().isOwner()){
-			outputMessage += "!shutdown - Shuts down the bot and PMs the event log to the sender. Will only work for admins!\n";
+		String output = "";
+		
+		if(extraArg.equalsIgnoreCase("help")){
+        	help(event);
+        	return;
+        }
+		
+		for(int i = 0; i < Main.list.size(); ++i){
+			output += "\n" + Main.list.get(i);
 		}
-		outputMessage += "!uptime - Displays the time the bot started up, and how much time has passed since then.\n!users - Returns the number of members in the guild.";
-		event.getTextChannel().sendTyping().queue();
-		event.getTextChannel().sendMessage(outputMessage).queue();
+		
+		event.getTextChannel().sendMessage(output).queue();
 	}
 
-	public String help() {
-		return HELP;
+	public void help(MessageReceivedEvent event) {
+		event.getTextChannel().sendMessage(HELP).queue();
 	}
 
 	public void executed(boolean success, MessageReceivedEvent event) {

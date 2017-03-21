@@ -1,7 +1,29 @@
-1.0 - First full build. List, log, owner, ping, roles, roll, shutdown, uptime, and users command.
+1.0:
+- List, log, owner, ping, roles, roll, shutdown, uptime, and users command.
 
-1.1 - Adjusted bot to only respond in #bot-stuff and #testing-bot. Overhaul of parsing/handling process. Minor tweaks to command method arguments to allow for easier addition of features.
+1.1:
+- Adjusted bot to only respond in #bot-stuff and #testing-bot. 
+- Minor tweaks to command method arguments to allow for easier addition of features.
+- Overhaul of parsing/handling process. 
 
-1.2 - Added !quote command. Bot also now displays a status "playing" in the discord user list.
+1.2:
+- Added !quote command. 
+- Bot also now displays a status "playing" in the discord user list.
 
-1.3 - Added !8ball command. Fixed various bugs with !quote. Added support for multiple rolls per command for !roll.
+1.3:
+- Added !8ball command. 
+- Added support for multiple rolls per command for !roll.
+- Fixed various bugs with !quote. 
+
+1.5 - Major Update:
+- Added !8ball info to list output.
+- Added help variants to each command to output instructions on how to use the command
+- Changed bot token to be in a .txt file separately for security (not having it easily visible in the main code)
+- Fixed bug with !uptime values not rolling over to 0 once hitting 60
+- Fixed so bot only responds if a message contains only the command and (if required for the command in question) extra argument value
+- Moved all .txt file accesses to Main.java to keep command classes cleaner
+- Removed "PBot is typing..." from commands
+- Send log file as opposed to log text for !log and !shutdown
+- Updated !roll info to reflect addition of allowed multiple rolls.
+- Updated !list to take from .txt file
+- Updated BotListener class to take in Whitelist of channels from .txt file

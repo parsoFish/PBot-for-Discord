@@ -12,14 +12,14 @@ import net.dv8tion.jda.core.entities.Role;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 /*
- * PBot v1.3 by Phoenix
+ * PBot v1.5 by Phoenix
  * For use in Discord server "The Cute Squad" only
  */
 
 public class RolesCommand implements Command {
 	private final String HELP = "Usage: !roles\nReturns a list of the roles in this server, as well as a count of how many people are assigned each role.";
 	
-	public boolean called(String commandArg, String extraArg) {
+	public boolean called(String commandArg, String extraArg, MessageReceivedEvent event) {
 		if(commandArg.equals("roles")){
 			return true;
 		}
@@ -28,6 +28,12 @@ public class RolesCommand implements Command {
 
 	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
+		
+		if(extraArg.equalsIgnoreCase("help")){
+        	help(event);
+        	return;
+        }
+		
 		List<Role> roles = event.getGuild().getRoles();
 		List<Member> members = event.getGuild().getMembers();
 		String outputMessage = "Roles:\n";
@@ -42,12 +48,12 @@ public class RolesCommand implements Command {
 			}
 			outputMessage += currentRole.getName() + ": " + roleMemberCount + "\n";
 		}
-		event.getTextChannel().sendTyping().queue();
+		
 		event.getTextChannel().sendMessage(outputMessage).queue();
 	}
 
-	public String help() {
-		return HELP;
+	public void help(MessageReceivedEvent event) {
+		event.getTextChannel().sendMessage(HELP).queue();
 	}
 
 	public void executed(boolean success, MessageReceivedEvent event) {

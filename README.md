@@ -1,20 +1,20 @@
-# PBot-for-Discord v1.3
+# PBot-for-Discord v1.5
 Discord bot created by Phoenix for general usage.
 
 Currently only used in "The Cute Squad" Discord server for general commands.
 
 **Current list of commands:**<br />
-!8ball - Responds with an 8-ball type answer.<br />
-!list - Returns a list of commands accessible to the user.<br />
-!log - Sends a PM of events that have occurred since the bot's startup.<br />
+!8ball - Responds with an 8-ball type response.<br />
+!list - Returns the list of available commands.<br />
+!log - **Admin Only** Sends a PM of events that have occurred since the bot's startup.<br />
 !owner - Returns the nickname of the owner of the server.<br />
 !ping - Returns Pong! if successful, as well as the time the ping request was sent.<br />
 !quote - Returns a random quote from a Sprash member.<br />
 !roles - Returns a list of the roles in this server, as well as a count of how many people are assigned each role.<br />
-!roll - Rolls a 6-sided dice and returns the result. Input a number 1-100 to roll that many times.<br />
-!shutdown - Shuts down the bot and PMs the event log to the sender. Admins only.<br />
-!uptime - Displays the time the bot started up, and how much time has passed since then.<br />
-!users - Returns the number of members in the guild.
+!roll - Rolls a 6-sided dice and returns the result. Add a number to roll more than once (1-100 times).<br />
+!shutdown - **Admin Only** Shuts down the bot and PMs the event log to the sender.<br />
+!uptime - Displays how much time has passed since the bot last started up.<br />
+!users - Returns the number of users in the server.<br />
 <br />
 <br />
 # **Technical overview of the bot's code**

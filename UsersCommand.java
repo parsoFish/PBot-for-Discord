@@ -9,14 +9,14 @@ import com.projects.discordbot.Main;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 /*
- * PBot v1.3 by Phoenix
+ * PBot v1.5 by Phoenix
  * For use in Discord server "The Cute Squad" only
  */
 
 public class UsersCommand implements Command {
 	private final String HELP = "USAGE: !users\nReturns the number of users in the server.";
 	
-	public boolean called(String commandArg, String extraArg) {
+	public boolean called(String commandArg, String extraArg, MessageReceivedEvent event) {
 		if(commandArg.equals("users")){
 			return true;
 		}
@@ -25,13 +25,18 @@ public class UsersCommand implements Command {
 
 	public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
 		logEvent(event);
+		
+		if(extraArg.equalsIgnoreCase("help")){
+        	help(event);
+        	return;
+        }
+		
 		int numberOfUsers = event.getGuild().getMembers().size();
-		event.getTextChannel().sendTyping().queue();
 		event.getTextChannel().sendMessage("Number of users in server: " + numberOfUsers).queue();
 	}
 
-	public String help() {
-		return HELP;
+	public void help(MessageReceivedEvent event) {
+		event.getTextChannel().sendMessage(HELP).queue();
 	}
 
 	public void executed(boolean success, MessageReceivedEvent event) {
