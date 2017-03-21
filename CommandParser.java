@@ -3,7 +3,7 @@ package com.projects.discordbot;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 /*
- * PBot v1.3 by Phoenix
+ * PBot v1.5 by Phoenix
  * For use in Discord server "The Cute Squad" only
  */
 
@@ -35,6 +35,8 @@ public class CommandParser {
 		commandArg = textSplit[0];
 		if(textSplit.length > 1){
 			extraArg = textSplit[1];
+		}else{
+			extraArg = "";
 		}
 		
 		return new CommandParser(commandArg, extraArg, e);

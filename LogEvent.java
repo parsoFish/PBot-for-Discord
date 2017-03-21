@@ -1,7 +1,7 @@
 package com.projects.discordbot;
 
 /*
- * PBot v1.3 by Phoenix
+ * PBot v1.5 by Phoenix
  * For use in Discord server "The Cute Squad" only
  */
 

@@ -1,12 +1,8 @@
 package commands;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 import com.projects.discordbot.Command;
 import com.projects.discordbot.Main;
@@ -14,14 +10,14 @@ import com.projects.discordbot.Main;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 /*
- * PBot v1.3 by Phoenix
+ * PBot v1.5 by Phoenix
  * For use in Discord server "The Cute Squad" only
  */
 public class EightBallCommand implements Command {
-    private final String HELP = "Usage: !8ball\nAnswers a question with an 8-ball type response at random.";
+    private final String HELP = "Usage: !8ball\nResponds with an 8-ball type response.\nFormat: !8ball question_here";
     
     
-    public boolean called(String commandArg, String extraArg) {
+    public boolean called(String commandArg, String extraArg, MessageReceivedEvent event) {
         if(commandArg.equals("8ball")){
             return true;
         }
@@ -29,32 +25,23 @@ public class EightBallCommand implements Command {
     }
 
     public void action(String commandArg, String extraArg, MessageReceivedEvent event) {
-        Scanner input = null;
         Random rng = new Random();
-        ArrayList<String> responses = new ArrayList<String>();
-        //Open file
-        try{
-            input = new Scanner(new File("C:\\Users\\Sean\\Desktop\\Programming\\Eclipse\\Discord Bot\\8Ball.txt"));
-        }catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
+        logEvent(event);
         
-        //Delimiter set to comma, and add trimmed quotes
-        input.useDelimiter("\\|");
-        while(input.hasNext()){
-            responses.add(input.next().trim());
+        if(extraArg.equalsIgnoreCase("help")){
+        	help(event);
+        	return;
         }
-        input.close();
         
         if(extraArg.isEmpty()){
             event.getTextChannel().sendMessage("Invalid - ask me a question after typing !8ball.").queue();
         }else{
-            event.getTextChannel().sendMessage(responses.get(rng.nextInt(responses.size()))).queue();
+            event.getTextChannel().sendMessage(Main.eightBallResponses.get(rng.nextInt(Main.eightBallResponses.size()))).queue();
         }
     }
 
-    public String help() {
-        return HELP;
+    public void help(MessageReceivedEvent event) {
+    	event.getTextChannel().sendMessage(HELP).queue();
     }
 
     public void executed(boolean success, MessageReceivedEvent event) {
